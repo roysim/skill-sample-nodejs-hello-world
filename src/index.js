@@ -28,6 +28,14 @@ var handlers = {
                 console.log(error);
             }
         });
+        
+        //Lets try to make a HTTP GET request to modulus.io's website.
+        request('http://www.modulus.io', function (error, response, body) {
+            if (!error && response.statusCode == 200) {
+                console.log(body); // Show the HTML for the Modulus homepage.
+            }
+        });
+        
         console.log('SayHello function end');
         this.emit(':tell', "I don't see any lunch on the calendar today.");
     }
