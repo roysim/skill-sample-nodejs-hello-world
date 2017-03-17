@@ -28,7 +28,7 @@ var handlers = {
         cal = request(options)  
           .then(function (response) {
             console.log('request ok');
-            return(response);
+            return(response.data);
           })
           .catch(function (err) {
             // Something bad happened, handle the error
