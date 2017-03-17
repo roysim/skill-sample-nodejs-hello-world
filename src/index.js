@@ -22,6 +22,9 @@ var handlers = {
                 console.log(body); // Show the HTML for the Modulus homepage.
                 this.emit(':tell', body);
             }
+            else {
+                console.log(error);
+            }
         });
         this.emit(':tell', "I don't see any lunch on the calendar today.");
     }
