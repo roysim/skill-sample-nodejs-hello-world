@@ -26,11 +26,13 @@ var handlers = {
         request(options)  
           .then(function (response) {
             console.log('request ok');
+            this.emit(response);
           })
           .catch(function (err) {
             // Something bad happened, handle the error
             console.log('request ERROR');
             console.log(err);
+            this.emit(response);
             
           })
         
