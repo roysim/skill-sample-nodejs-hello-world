@@ -15,6 +15,6 @@ var handlers = {
         this.emit('SayHello')
     },
     'SayHello': function () {
-        this.emit(':tell', 'Hello World!');
+        this.emit(':tell', 'Todays lunch is pizza.');
     }
 };
