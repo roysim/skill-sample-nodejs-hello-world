@@ -18,32 +18,14 @@ var handlers = {
     'SayHello': function () {
         
         var ical = require('ical');
-
-
-        
-        request('http://www.chapin.edu/data/calendar/rsscache/calendar_285.rss', function (error, response, body) {
-            if (!error && response.statusCode == 200) {
-                //console.log(body); 
-                //console.log(response.statusCode);
-                
-                var parseString = require('xml2js').parseString;
-                var dataXML = body;
-                parseString(dataXML, function (err, result) {
-                    var dataJSON = result;
-                    console.dir(dataJSON);
-                    console.log(util.inspect(dataJSON, false, null));
-                    console.log(
-                    //this.emit(':tell', JSON.stringify(dataJSON));
-
-                });
-                                
+        ical.fromURL('http://www.chapin.edu/data/calendar/rsscache/calendar_285.ics', {}, function(err, data) {
+          for (var k in data){
+            if (data.hasOwnProperty(k)) {
+              var ev = data[k]
+              console.log("Event: ", ev.summary, 'on ', ev.start.getDate());
             }
-            else
-            {
-                console.log('Error with request');
-                this.emit('Oops.');
-            }
-            
-        });
-    }
-};
+          }
+        }); //ical
+       
+    } //sayhello
+}; //handlers
