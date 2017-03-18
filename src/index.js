@@ -18,11 +18,12 @@ var handlers = {
     'SayHello': function () {
         request('http://www.chapin.edu/data/calendar/rsscache/calendar_282.rss', function (error, response, body) {
             if (!error && response.statusCode == 200) {
-                console.log(body); 
-                console.log(response.statusCode);
+                //console.log(body); 
+                //console.log(response.statusCode);
                 var parser = require('xml2json');
                 var dataXML = body;
                 var dataJSON = parser.toJson(dataXML);
+                console.log(dataJSON);
                 this.emit(':tell', dataJSON);
             }
             else
