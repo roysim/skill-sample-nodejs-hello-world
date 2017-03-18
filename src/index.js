@@ -12,7 +12,7 @@ var handlers = {
         this.emit('SayHello');
     },
     'HelloWorldIntent': function () {
-        this.emit('SayHello')
+        this.emit('SayHello');
     },
     'SayHello': function () {
         console.log('SayHello function start');
@@ -25,19 +25,18 @@ var handlers = {
           uri: 'http://www.chapin.edu/data/calendar/rsscache/calendar_282.rss'
         }
         
-        cal = request(options)  
+        request(options)  
           .then(function (response) {
             console.log('request ok');
-            return(response.data);
+            this.emit('request ok');
           })
           .catch(function (err) {
             // Something bad happened, handle the error
             console.log('request ERROR');
             console.log(err);
-            return("");
+            this.emit('Oops');
             
           })
-        console.log(cal);
         console.log('SayHello function end');
         this.emit(':tell', "I don't see any lunch on the calendar today.");
     }
