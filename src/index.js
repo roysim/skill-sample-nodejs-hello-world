@@ -26,9 +26,10 @@ var handlers = {
                 parseString(dataXML, function (err, result) {
                     var dataJSON = result;
                     console.log(dataJSON);
+                    this.emit(':tell', dataJSON);
+
                 });
                                 
-                this.emit(':tell', dataJSON);
             }
             else
             {
