@@ -16,6 +16,20 @@ var handlers = {
         this.emit('SayHello');
     },
     'SayHello': function () {
+        
+        var ical = require('ical');
+        ical.fromURL('http://www.chapin.edu/data/calendar/rsscache/calendar_285.ics', {}, function(err, data) {
+          for (var k in data){
+            if (data.hasOwnProperty(k)) {
+              var ev = data[k]
+              console.log("Conference",
+                ev.summary,
+                'on ', ev.start.getDate());
+            }
+          }
+        });
+
+        
         request('http://www.chapin.edu/data/calendar/rsscache/calendar_285.rss', function (error, response, body) {
             if (!error && response.statusCode == 200) {
                 //console.log(body); 
