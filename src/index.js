@@ -25,8 +25,8 @@ var handlers = {
                 var dataXML = body;
                 parseString(dataXML, function (err, result) {
                     var dataJSON = result;
-                    console.log(dataJSON);
-                    this.emit(':tell', dataJSON);
+                    console.dir(dataJSON);
+                    this.emit(':tell', JSON.stringify(dataJSON));
 
                 });
                                 
