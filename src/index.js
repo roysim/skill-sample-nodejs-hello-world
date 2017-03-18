@@ -20,10 +20,14 @@ var handlers = {
             if (!error && response.statusCode == 200) {
                 //console.log(body); 
                 //console.log(response.statusCode);
-                var parser = require('xml2json');
+                
+                var parseString = require('xml2js').parseString;
                 var dataXML = body;
-                var dataJSON = parser.toJson(dataXML);
-                console.log(dataJSON);
+                parseString(dataXML, function (err, result) {
+                    var dataJSON = result;
+                    console.log(dataJSON);
+                });
+                                
                 this.emit(':tell', dataJSON);
             }
             else
