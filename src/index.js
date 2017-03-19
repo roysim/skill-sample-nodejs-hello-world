@@ -24,14 +24,14 @@ var handlers = {
             var dateRequested = dateSlot.value;
         }
         else var dateRequested=new Date();
-        console.log('The date requested is ' & dateRequested);
+        console.log('The date requested is', dateRequested.toString());
         
         var ical = require('ical');
         ical.fromURL('http://www.chapin.edu/data/calendar/rsscache/calendar_282.ics', {}, function(err, data) {
           for (var k in data){
             if (data.hasOwnProperty(k)) {
               var ev = data[k]
-              console.log("Lunch is ", ev.summary, 'on ', ev.start.getDate());
+              console.log("Lunch is", ev.summary, 'on ', ev.start.getDate());
               
             }            
           }
