@@ -59,6 +59,7 @@ var handlers = {
 function getDateFromSlot(rawDate) {
     // try to parse data
     var date = new Date(Date.parse(rawDate));
+    return date;
     var result;
     // create an empty object to use later
     var eventDate = {
