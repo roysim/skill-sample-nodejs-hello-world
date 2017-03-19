@@ -37,10 +37,12 @@ var handlers = {
         for (var k in data){
             if (data.hasOwnProperty(k)) {
               var ev = data[k]
-              console.log(ev.start.toString());
+//              console.log(ev.start.toString());
               if (dateRequested.getDate() == ev.start.getDate() && dateRequested.getMonth() == ev.start.getMonth())  {
                     console.log("Lunch is", ev.summary, 'on ', ev.start.getDate());
-                    this.emit("Lunch is" + ev.summary + 'on ' + ev.start.getDate());
+                    var result = "Lunch is" + ev.summary + 'on ' + ev.start.getDate();
+                    this.emit(':tell', speechOutput);
+
               }
                 
             }            
