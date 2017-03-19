@@ -1,7 +1,13 @@
 {
   "intents": [
     {
-      "intent": "HelloWorldIntent"
+      "intent": "LunchIntent",
+      "slots": [
+        {
+          "name": "Date",
+          "type": "AMAZON.DATE"
+        }
+      ]
     }
   ]
 }
