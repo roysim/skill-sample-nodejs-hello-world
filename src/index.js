@@ -1,6 +1,8 @@
 'use strict';
 var Alexa = require("alexa-sdk");
 var request = require("request");
+var APP_ID = "amzn1.ask.skill.c958f220-e3fb-4d54-876a-f9bf0e7bf43c"
+
 
 exports.handler = function(event, context, callback) {
     var alexa = Alexa.handler(event, context);
@@ -19,7 +21,7 @@ var handlers = {
         this.emit('SayLunch');
     },
     'SayLunch': function () {
-        var dateSlot = this.event.request.intent.slots.Item
+        var dateSlot = this.event.request.intent.slots.Date
         if (dateSlot && dateSlot.value) {
             var dateRequested = dateSlot.value;
             console.log('Date specified.');
