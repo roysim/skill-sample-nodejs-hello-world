@@ -38,7 +38,7 @@ var handlers = {
             if (data.hasOwnProperty(k)) {
               var ev = data[k]
               console.log(ev.start.toString());
-              if (dateRequested == ev.start)  {
+              if (dateRequested.getDate() == ev.start.getDate() && dateRequested.getMonth() == ev.start.getMonth())  {
                     console.log("Lunch is", ev.summary, 'on ', ev.start.getDate());
                     this.emit("Lunch is" + ev.summary + 'on ' + ev.start.getDate());
               }
