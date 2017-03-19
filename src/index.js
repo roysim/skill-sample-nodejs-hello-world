@@ -24,8 +24,7 @@ var handlers = {
             var dateRequested = dateSlot.value;
             console.log('Date specified.');
         }
-        else 
-        {
+        else {
             var dateRequested=new Date();
             console.log('No date in slot.');
         }
@@ -36,7 +35,9 @@ var handlers = {
           for (var k in data){
             if (data.hasOwnProperty(k)) {
               var ev = data[k]
-              //console.log("Lunch is", ev.summary, 'on ', ev.start.getDate());
+              if (dateRequested == ev.start.getDate())  {
+                    console.log("Lunch is", ev.summary, 'on ', ev.start.getDate());
+              }
               
             }            
           }
