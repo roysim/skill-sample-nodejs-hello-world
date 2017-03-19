@@ -19,6 +19,12 @@ var handlers = {
         this.emit('SayLunch');
     },
     'SayLunch': function () {
+        var dateSlot = this.event.request.intent.slots.Item
+        if (dateSlot && dateSlot.value) {
+            var date = dateSlot.value;
+        }
+        else date=new Date();
+        console.log(date);
         
         var ical = require('ical');
         ical.fromURL('http://www.chapin.edu/data/calendar/rsscache/calendar_282.ics', {}, function(err, data) {
@@ -26,7 +32,8 @@ var handlers = {
             if (data.hasOwnProperty(k)) {
               var ev = data[k]
               console.log("Lunch is ", ev.summary, 'on ', ev.start.getDate());
-            }
+              
+            }            
           }
         }); //ical
        
