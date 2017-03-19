@@ -34,13 +34,14 @@ var handlers = {
         
         var ical = require('ical');
         ical.fromURL('http://www.chapin.edu/data/calendar/rsscache/calendar_282.ics', {}, function(err, data) {
-          for (var k in data){
+        for (var k in data){
             if (data.hasOwnProperty(k)) {
               var ev = data[k]
+              console.log(ev.start.getDate().toString());
               if (dateRequested == ev.start.getDate())  {
                     console.log("Lunch is", ev.summary, 'on ', ev.start.getDate());
               }
-              
+                
             }            
           }
         }); //ical
