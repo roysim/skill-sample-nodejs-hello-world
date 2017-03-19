@@ -22,8 +22,13 @@ var handlers = {
         var dateSlot = this.event.request.intent.slots.Item
         if (dateSlot && dateSlot.value) {
             var dateRequested = dateSlot.value;
+            console.log('Date specified.');
         }
-        else var dateRequested=new Date();
+        else 
+        {
+            var dateRequested=new Date();
+            console.log('No date in slot.');
+        }
         console.log('The date requested is', dateRequested.toString());
         
         var ical = require('ical');
