@@ -40,7 +40,7 @@ var handlers = {
               console.log(ev.start.toString());
               if (dateRequested == ev.start)  {
                     console.log("Lunch is", ev.summary, 'on ', ev.start.getDate());
-                    this.emit(:tell, "Lunch is" + ev.summary + 'on ' + ev.start.getDate());
+                    this.emit("Lunch is" + ev.summary + 'on ' + ev.start.getDate());
               }
                 
             }            
