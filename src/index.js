@@ -7,15 +7,15 @@ exports.handler = function(event, context, callback) {
     alexa.registerHandlers(handlers);
     alexa.execute();
 };
-//http://www.chapin.edu/data/calendar/rsscache/calendar_282.rss
+
 var handlers = {
     'LaunchRequest': function () {
-        this.emit('SayHello');
+        this.emit('SayLunch');
     },
-    'HelloWorldIntent': function () {
-        this.emit('SayHello');
+    'LunchIntent': function () {
+        this.emit('SayLunch');
     },
-    'SayHello': function () {
+    'SayLunch': function () {
         
         var ical = require('ical');
         ical.fromURL('http://www.chapin.edu/data/calendar/rsscache/calendar_282.ics', {}, function(err, data) {
@@ -27,5 +27,5 @@ var handlers = {
           }
         }); //ical
        
-    } //sayhello
+    } //saylunch
 }; //handlers
