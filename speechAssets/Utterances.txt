@@ -1,3 +1,8 @@
-HelloWorldIntent hello
-HelloWorldIntent say hello
-HelloWorldIntent say hello world
+LunchIntent what is for lunch
+LunchIntent what is the menu
+LunchIntent what is on the menu
+LunchIntent what is lunch
+LunchIntent what is for lunch {Date}
+LunchIntent what is the menu {Date}
+LunchIntent what is lunch {Date}
+LunchIntent what is on the menu {Date}
