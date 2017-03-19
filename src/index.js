@@ -40,7 +40,7 @@ var handlers = {
 //              console.log(ev.start.toString());
               if (dateRequested.getDate() == ev.start.getDate() && dateRequested.getMonth() == ev.start.getMonth())  {
                     console.log("Lunch is", ev.summary, 'on ', ev.start.getDate());
-                    var result = "Lunch is" + ev.summary + 'on ' + ev.start.getDate();
+                    var speechOutput = "Lunch is" + ev.summary + 'on ' + ev.start.getDate();
                     this.emit(':tell', speechOutput);
 
               }
