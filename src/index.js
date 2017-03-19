@@ -37,9 +37,10 @@ var handlers = {
         for (var k in data){
             if (data.hasOwnProperty(k)) {
               var ev = data[k]
-              console.log(ev.start.getDate().toString());
-              if (dateRequested == ev.start.getDate())  {
+              console.log(ev.start.toString());
+              if (dateRequested == ev.start)  {
                     console.log("Lunch is", ev.summary, 'on ', ev.start.getDate());
+                    this.emit(:tell, "Lunch is" + ev.summary + 'on ' + ev.start.getDate());
               }
                 
             }            
