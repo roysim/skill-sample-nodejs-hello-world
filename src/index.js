@@ -21,10 +21,10 @@ var handlers = {
     'SayLunch': function () {
         var dateSlot = this.event.request.intent.slots.Item
         if (dateSlot && dateSlot.value) {
-            var date = dateSlot.value;
+            var dateRequested = dateSlot.value;
         }
-        else date=new Date();
-        console.log(date);
+        else var dateRequested=new Date();
+        console.log('The date requested is ' & dateRequested);
         
         var ical = require('ical');
         ical.fromURL('http://www.chapin.edu/data/calendar/rsscache/calendar_282.ics', {}, function(err, data) {
