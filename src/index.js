@@ -12,6 +12,9 @@ var handlers = {
     'LaunchRequest': function () {
         this.emit('SayLunch');
     },
+    'unhandled': function () {
+        this.emit('SayLunch');
+    },
     'LunchIntent': function () {
         this.emit('SayLunch');
     },
