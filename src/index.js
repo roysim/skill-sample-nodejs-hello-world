@@ -22,6 +22,9 @@ var handlers = {
     'LunchIntent': function () {
         this.emit('SayLunch');
     },
+    'DayIntent': function () {
+        this.emit('SayDay');
+    },
     'SayLunch': function () {
         var speechOutput = "I am having trouble getting the lunch menu.";
         var thisObj = this;
