@@ -41,7 +41,7 @@ var handlers = {
               var ev = data[k]
 //              console.log(ev.start.toString());
               if (dateRequested.getDate() == ev.start.getDate() && dateRequested.getMonth() == ev.start.getMonth())  {
-                    speechOutput = "Lunch is" + ev.summary + 'on ' + ev.start.getDate();
+                    speechOutput = "Lunch is " + ev.summary + ' on ' + this.event.request.intent.slots.Date;
                     console.log(speechOutput);
                     
 
@@ -49,7 +49,7 @@ var handlers = {
                 
             }            
           }
-          this.emit(':tell', speechOutput);
+          this.emit(speechOutput);
         }); //ical
        
     } //saylunch
