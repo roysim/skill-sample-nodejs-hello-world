@@ -16,8 +16,8 @@ var handlers = {
     'LaunchRequest': function () {
         this.emit('SayLunch');
     },
-    'unhandled': function () {
-        this.emit('SayLunch');
+    'Unhandled': function () {
+        this.emit(':ask', 'Ask me what is for lunch!');
     },
     'LunchIntent': function () {
         this.emit('SayLunch');
@@ -75,7 +75,8 @@ function getDateFromSlot(rawDate) {
     };
 
     // if could not parse data must be one of the other formats
-    if (isNaN(date)) {
+    if (isNaNd
+        date)) {
         // to find out what type of date this is, we can split it and count how many parts we have see comments above.
         var res = rawDate.split("-");
         // if we have 2 bits that include a 'W' week number
