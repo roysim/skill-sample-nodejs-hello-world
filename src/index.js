@@ -2,7 +2,9 @@
 var Alexa = require("alexa-sdk");
 var request = require("request");
 var APP_ID = "amzn1.ask.skill.c958f220-e3fb-4d54-876a-f9bf0e7bf43c"
-
+var monthNames = ["January", "February", "March", "April", "May", "June",
+  "July", "August", "September", "October", "November", "December"
+];
 
 exports.handler = function(event, context, callback) {
     var alexa = Alexa.handler(event, context);
@@ -42,7 +44,7 @@ var handlers = {
               var ev = data[k]
 //              console.log(ev.start.toString());
               if (dateRequested.getDate() == ev.start.getDate() && dateRequested.getMonth() == ev.start.getMonth())  {
-                    speechOutput = "Lunch is " + ev.summary + ' on ' + dateRequested.toLocaleString("en-us", { month: "long" }) + " " + dateRequested.getDate();
+                    speechOutput = "Lunch is " + ev.summary + ' on ' +  monthNames[dateRequested.getMonth()] + " " + dateRequested.getDate();
                     console.log(speechOutput);
                     
 
