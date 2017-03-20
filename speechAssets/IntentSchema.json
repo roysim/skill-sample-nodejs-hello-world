@@ -6,6 +6,12 @@
         {
           "name": "Date",
           "type": "AMAZON.DATE"
+        },
+        "intent": "DayIntent",
+        "slots": [
+        {
+          "name": "Date",
+          "type": "AMAZON.DATE"
         }
       ]
     }
