@@ -1,13 +1,13 @@
 'use strict';
 var Alexa = require("alexa-sdk");
 var request = require("request");
-Alexa.appId = "amzn1.ask.skill.c958f220-e3fb-4d54-876a-f9bf0e7bf43c"
 var monthNames = ["January", "February", "March", "April", "May", "June",
   "July", "August", "September", "October", "November", "December"
 ];
 
 exports.handler = function(event, context, callback) {
     var alexa = Alexa.handler(event, context);
+    alexa.appId = "amzn1.ask.skill.c958f220-e3fb-4d54-876a-f9bf0e7bf43c"
     alexa.registerHandlers(handlers);
     alexa.execute();
 };
