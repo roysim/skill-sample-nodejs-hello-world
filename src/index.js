@@ -14,7 +14,7 @@ exports.handler = function(event, context, callback) {
 
 var handlers = {
     'LaunchRequest': function () {
-        this.emit('SayLunch');
+        this.emit(':ask', 'Ask me what is for lunch!');
     },
     'Unhandled': function () {
         this.emit(':ask', 'Ask me what is for lunch!');
