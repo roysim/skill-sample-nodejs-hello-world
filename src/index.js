@@ -42,7 +42,7 @@ var handlers = {
               var ev = data[k]
 //              console.log(ev.start.toString());
               if (dateRequested.getDate() == ev.start.getDate() && dateRequested.getMonth() == ev.start.getMonth())  {
-                    speechOutput = "Lunch is " + ev.summary + ' on ' + thisObj.event.request.intent.slots.Date.toLocaleString("en-us", { month: "long" }) + " " + thisObj.event.request.intent.slots.Date.getDay();
+                    speechOutput = "Lunch is " + ev.summary + ' on ' + dateRequested.toLocaleString("en-us", { weekday: "long" });
                     console.log(speechOutput);
                     
 
