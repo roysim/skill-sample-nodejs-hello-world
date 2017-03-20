@@ -21,6 +21,8 @@ var handlers = {
         this.emit('SayLunch');
     },
     'SayLunch': function () {
+        var speechOutput = "I am having trouble getting the lunch menu.";
+        
         var dateSlot = this.event.request.intent.slots.Date
         if (dateSlot && dateSlot.value) {
             var dateRequested = getDateFromSlot(dateSlot.value);
@@ -39,14 +41,15 @@ var handlers = {
               var ev = data[k]
 //              console.log(ev.start.toString());
               if (dateRequested.getDate() == ev.start.getDate() && dateRequested.getMonth() == ev.start.getMonth())  {
-                    console.log("Lunch is", ev.summary, 'on ', ev.start.getDate());
-                    var speechOutput = "Lunch is" + ev.summary + 'on ' + ev.start.getDate();
-                    this.emit(':tell', speechOutput);
+                    speechOutput = "Lunch is" + ev.summary + 'on ' + ev.start.getDate();
+                    console.log(speechOutput);
+                    
 
               }
                 
             }            
           }
+          this.emit(':tell', speechOutput);
         }); //ical
        
     } //saylunch
