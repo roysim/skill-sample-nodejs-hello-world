@@ -52,7 +52,7 @@ var handlers = {
                 
             }            
           }
-          thisObj.emit(speechOutput);
+          thisObj.emit(":tell", speechOutput);
         }); //ical
        
     } //saylunch
