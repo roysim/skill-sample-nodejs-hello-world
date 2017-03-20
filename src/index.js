@@ -1,7 +1,7 @@
 'use strict';
 var Alexa = require("alexa-sdk");
 var request = require("request");
-var APP_ID = "amzn1.ask.skill.c958f220-e3fb-4d54-876a-f9bf0e7bf43c"
+Alexa.appId = "amzn1.ask.skill.c958f220-e3fb-4d54-876a-f9bf0e7bf43c"
 var monthNames = ["January", "February", "March", "April", "May", "June",
   "July", "August", "September", "October", "November", "December"
 ];
