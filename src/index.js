@@ -75,8 +75,7 @@ function getDateFromSlot(rawDate) {
     };
 
     // if could not parse data must be one of the other formats
-    if (isNaNd
-        date)) {
+    if (isNaN(date)) {
         // to find out what type of date this is, we can split it and count how many parts we have see comments above.
         var res = rawDate.split("-");
         // if we have 2 bits that include a 'W' week number
