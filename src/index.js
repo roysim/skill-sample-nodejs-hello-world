@@ -46,10 +46,38 @@ var handlers = {
               if (dateRequested.getDate() == ev.start.getDate() && dateRequested.getMonth() == ev.start.getMonth())  {
                     speechOutput = "Lunch is " + ev.summary + ' on ' +  monthNames[dateRequested.getMonth()] + " " + dateRequested.getDate();
                     console.log(speechOutput);
-                    
-
               }
-                
+            }            
+          }
+          thisObj.emit(":tell", speechOutput);
+        }); //ical
+       
+    }, //saylunch
+   'SayDay': function () {
+        var speechOutput = "I am having trouble getting the calendar.";
+        var thisObj = this;
+        
+        var dateSlot = this.event.request.intent.slots.Date
+        if (dateSlot && dateSlot.value) {
+            var dateRequested = getDateFromSlot(dateSlot.value);
+            console.log('Date specified.');
+        }
+        else {
+            var dateRequested=new Date();
+            console.log('No date in slot.');
+        }
+        console.log('The date requested is', dateRequested.toString());
+        
+        var ical = require('ical');
+        ical.fromURL('http://www.chapin.edu/calendar/calendar_2161.ics', {}, function(err, data) {
+        for (var k in data){
+            if (data.hasOwnProperty(k)) {
+              var ev = data[k]
+//              console.log(ev.start.toString());
+              if (dateRequested.getDate() == ev.start.getDate() && dateRequested.getMonth() == ev.start.getMonth())  {
+                    speechOutput = monthNames[dateRequested.getMonth()] + " " + dateRequested.getDate() + " is a " + ev.summary + " day.";
+                    console.log(speechOutput);
+              }
             }            
           }
           thisObj.emit(":tell", speechOutput);
