@@ -6,3 +6,12 @@ LunchIntent what is for lunch {Date}
 LunchIntent what is the menu {Date}
 LunchIntent what is lunch {Date}
 LunchIntent what is on the menu {Date}
+DayIntent what day is it
+DayIntent what day it is
+DayIntent what schedule is it
+DayIntent what the schedule is
+DayIntent what day of the week is it
+DayIntent what day of the week is it
+DayIntent what day is {Date}
+DayIntent what is the schedule {Date}
+DayIntent what the schedule is {Date}
